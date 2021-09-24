@@ -1,7 +1,6 @@
 package com.example.demo.service.Species;
 
 import com.example.demo.model.Species;
-import com.example.demo.repository.GenerlsRepository;
 import com.example.demo.repository.SpeciesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

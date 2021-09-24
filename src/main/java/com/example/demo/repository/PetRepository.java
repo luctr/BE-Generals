@@ -1,9 +1,9 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.Generals;
+import com.example.demo.model.Pet;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GenerlsRepository extends CrudRepository<Generals, Long> {
+public interface PetRepository extends CrudRepository<Pet, Long> {
 }
