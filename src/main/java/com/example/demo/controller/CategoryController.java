@@ -1,35 +1,34 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Species;
+import com.example.demo.model.Category;
 import com.example.demo.service.Species.SpeciesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/species")
+    @RequestMapping("/categories")
 @CrossOrigin("*")
-public class SpeciesController {
+public class CategoryController {
     @Autowired
     private SpeciesService speciesService;
 
     @GetMapping
-    public ResponseEntity<Iterable<Species>> findAll(){
-        Iterable<Species> findAll = speciesService.findAll();
+    public ResponseEntity<Iterable<Category>> findAll(){
+        Iterable<Category> findAll = speciesService.findAll();
         return new ResponseEntity<>(findAll, HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<Species> createNewSpecies(@RequestBody Species species) {
-        speciesService.save(species);
+    public ResponseEntity<Category> createNewSpecies(@RequestBody Category category) {
+        speciesService.save(category);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Species> deleteById(@PathVariable Long id) {
-        Optional<Species> speciesOptional = speciesService.findById(id);
+    public ResponseEntity<Category> deleteById(@PathVariable Long id) {
+        Optional<Category> speciesOptional = speciesService.findById(id);
         if (!speciesOptional.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -38,19 +37,19 @@ public class SpeciesController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Species> editSpecies(@PathVariable Long id, @RequestBody Species species) {
-        Optional<Species> speciesOptional = speciesService.findById(id);
+    public ResponseEntity<Category> editSpecies(@PathVariable Long id, @RequestBody Category category) {
+        Optional<Category> speciesOptional = speciesService.findById(id);
         if (!speciesOptional.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        species.setId(id);
-        speciesService.save(species);
+        category.setId(id);
+        speciesService.save(category);
         return new ResponseEntity<>( HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Species> findById(@PathVariable Long id) {
-        Optional<Species> species = speciesService.findById(id);
+    public ResponseEntity<Category> findById(@PathVariable Long id) {
+        Optional<Category> species = speciesService.findById(id);
         if (!species.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

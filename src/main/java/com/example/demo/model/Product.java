@@ -3,7 +3,7 @@ package com.example.demo.model;
 import javax.persistence.*;
 
 @Entity
-public class Pet {
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -11,17 +11,17 @@ public class Pet {
     private String avatar;
     private Long price;
     @ManyToOne
-    private Species species;
+    private Category category;
     private String description;
 
-    public Pet() {
+    public Product() {
     }
 
-    public Pet(Long id, String name, String avatar, Long price, Species species, String description) {
+    public Product(Long id, String name, String avatar, Long price, Category category, String description) {
         this.id = id;
         this.name = name;
         this.avatar = avatar;
-        this.species = species;
+        this.category = category;
         this.price = price;
         this.description = description;
     }
@@ -50,12 +50,12 @@ public class Pet {
         this.avatar = avatar;
     }
 
-    public Species getSpecies() {
-        return species;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setSpecies(Species species) {
-        this.species = species;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public String getDescription() {

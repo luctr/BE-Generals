@@ -1,9 +1,9 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.Species;
+import com.example.demo.model.Category;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SpeciesRepository extends CrudRepository<Species,Long> {
+public interface CategoriesRepository extends CrudRepository<Category,Long> {
 }

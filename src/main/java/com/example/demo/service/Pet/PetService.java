@@ -1,35 +1,41 @@
 package com.example.demo.service.Pet;
 
-import com.example.demo.model.Pet;
-import com.example.demo.repository.PetRepository;
+import com.example.demo.model.Product;
+import com.example.demo.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class PetService implements IPetService {
 
     @Autowired
-    private PetRepository petRepository;
+    private ProductRepository productRepository;
 
     @Override
-    public Iterable<Pet> findAll() {
-        return petRepository.findAll();
+    public Iterable<Product> findAll() {
+        return productRepository.findAll();
     }
 
     @Override
-    public Optional<Pet> findById(Long id) {
-        return petRepository.findById(id);
+    public Optional<Product> findById(Long id) {
+        return productRepository.findById(id);
     }
 
     @Override
-    public void save(Pet pet) {
-        petRepository.save(pet);
+    public List<Product> findByName(String name) {
+        return productRepository.findByName(name);
+    }
+
+    @Override
+    public void save(Product product) {
+        productRepository.save(product);
     }
 
     @Override
     public void delete(Long id) {
-        petRepository.deleteById(id);
+        productRepository.deleteById(id);
     }
 }

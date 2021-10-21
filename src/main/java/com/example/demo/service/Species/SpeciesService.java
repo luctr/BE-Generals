@@ -1,34 +1,40 @@
 package com.example.demo.service.Species;
 
-import com.example.demo.model.Species;
-import com.example.demo.repository.SpeciesRepository;
+import com.example.demo.model.Category;
+import com.example.demo.repository.CategoriesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 public class SpeciesService implements ISpeciesService{
 
     @Autowired
-    private SpeciesRepository speciesRepository;
+    private CategoriesRepository categoriesRepository;
 
     @Override
-    public Iterable<Species> findAll() {
-        return speciesRepository.findAll();
+    public Iterable<Category> findAll() {
+        return categoriesRepository.findAll();
     }
 
     @Override
-    public Optional<Species> findById(Long id) {
-        return speciesRepository.findById(id);
+    public Optional<Category> findById(Long id) {
+        return categoriesRepository.findById(id);
     }
 
     @Override
-    public void save(Species species) {
-        speciesRepository.save(species);
+    public List<Category> findByName(String name) {
+        return null;
+    }
+
+    @Override
+    public void save(Category category) {
+        categoriesRepository.save(category);
     }
 
     @Override
     public void delete(Long id) {
-        speciesRepository.deleteById(id);
+        categoriesRepository.deleteById(id);
     }
 }
